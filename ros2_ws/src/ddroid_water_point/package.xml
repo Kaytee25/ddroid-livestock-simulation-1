@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ddroid_water_point</name>
+  <version>0.1.0</version>
+  <description>ROS 2 node for the DDROID livestock water-point controller and Gazebo scene.</description>
+  <maintainer email="fabulousdallen87@gmail.com">fabilous Lashidi</maintainer>
+  <license>MIT</license>
+
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

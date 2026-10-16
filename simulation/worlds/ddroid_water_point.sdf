@@ -1,0 +1,1407 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="ddroid">
+    <gravity>0 0 -9.8</gravity>
+    <physics name="ddroid_physics" type="ignored">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.82 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.35 0.25 -1</direction>
+    </light>
+    <scene>
+      <ambient>0.45 0.48 0.5 1</ambient>
+      <background>0.62 0.76 0.88 1</background>
+      <grid>false</grid>
+    </scene>
+
+    <model name="ground">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>12 12</size></plane></geometry>
+          <material><ambient>0.36 0.46 0.28 1.0</ambient><diffuse>0.36 0.46 0.28 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    
+    <model name="bench_top">
+      <static>true</static>
+      <pose>0.0000 0.0000 0.7400 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>2.1500 1.1500 0.0600</size></box></geometry>
+          <material><ambient>0.45 0.3 0.16 1.0</ambient><diffuse>0.45 0.3 0.16 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>2.1500 1.1500 0.0600</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="bench_leg_0">
+      <static>true</static>
+      <pose>-0.9500 -0.4500 0.3600 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.0350</radius><length>0.7200</length></cylinder></geometry>
+          <material><ambient>0.28 0.32 0.36 1.0</ambient><diffuse>0.28 0.32 0.36 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision">
+          <geometry><cylinder><radius>0.0350</radius><length>0.7200</length></cylinder></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="bench_leg_1">
+      <static>true</static>
+      <pose>-0.9500 0.4500 0.3600 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.0350</radius><length>0.7200</length></cylinder></geometry>
+          <material><ambient>0.28 0.32 0.36 1.0</ambient><diffuse>0.28 0.32 0.36 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision">
+          <geometry><cylinder><radius>0.0350</radius><length>0.7200</length></cylinder></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="bench_leg_2">
+      <static>true</static>
+      <pose>0.9500 -0.4500 0.3600 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.0350</radius><length>0.7200</length></cylinder></geometry>
+          <material><ambient>0.28 0.32 0.36 1.0</ambient><diffuse>0.28 0.32 0.36 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision">
+          <geometry><cylinder><radius>0.0350</radius><length>0.7200</length></cylinder></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="bench_leg_3">
+      <static>true</static>
+      <pose>0.9500 0.4500 0.3600 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.0350</radius><length>0.7200</length></cylinder></geometry>
+          <material><ambient>0.28 0.32 0.36 1.0</ambient><diffuse>0.28 0.32 0.36 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision">
+          <geometry><cylinder><radius>0.0350</radius><length>0.7200</length></cylinder></geometry>
+        </collision>
+      </link>
+    </model>
+    
+    <model name="supply_stand">
+      <static>true</static>
+      <pose>-0.7200 0.0000 0.8300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.2200 0.2200 0.1200</size></box></geometry>
+          <material><ambient>0.45 0.3 0.16 1.0</ambient><diffuse>0.45 0.3 0.16 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.2200 0.2200 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+    
+    <model name="supply_floor">
+      <static>true</static>
+      <pose>-0.7200 0.0000 0.8910 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.3360 0.3360 0.0180</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.3360 0.3360 0.0180</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="supply_wall_left">
+      <static>true</static>
+      <pose>-0.8790 0.0000 1.0900 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0180 0.3000 0.3800</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0180 0.3000 0.3800</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="supply_wall_right">
+      <static>true</static>
+      <pose>-0.5610 0.0000 1.0900 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0180 0.3000 0.3800</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0180 0.3000 0.3800</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="supply_wall_back">
+      <static>true</static>
+      <pose>-0.7200 0.1590 1.0900 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.3360 0.0180 0.3800</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.3360 0.0180 0.3800</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="supply_wall_front">
+      <static>true</static>
+      <pose>-0.7200 -0.1590 0.9798 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.3360 0.0180 0.1596</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.3360 0.0180 0.1596</size></box></geometry></collision>
+      </link>
+    </model>
+    
+    <model name="trough_floor">
+      <static>true</static>
+      <pose>0.6200 0.0200 0.8310 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.6960 0.3560 0.0180</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.6960 0.3560 0.0180</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="trough_wall_left">
+      <static>true</static>
+      <pose>0.2810 0.0200 0.9350 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0180 0.3200 0.1900</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0180 0.3200 0.1900</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="trough_wall_right">
+      <static>true</static>
+      <pose>0.9590 0.0200 0.9350 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0180 0.3200 0.1900</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0180 0.3200 0.1900</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="trough_wall_back">
+      <static>true</static>
+      <pose>0.6200 0.1890 0.9350 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.6960 0.0180 0.1900</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.6960 0.0180 0.1900</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="trough_wall_front">
+      <static>true</static>
+      <pose>0.6200 -0.1490 0.8799 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.6960 0.0180 0.0798</size></box></geometry>
+          <material><ambient>0.62 0.66 0.7 1.0</ambient><diffuse>0.62 0.66 0.7 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.6960 0.0180 0.0798</size></box></geometry></collision>
+      </link>
+    </model>
+    
+    <model name="pipe_horizontal">
+      <static>true</static>
+      <pose>-0.1400 0.0000 0.9600 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.8600 0.0300 0.0300</size></box></geometry>
+          <material><ambient>0.28 0.32 0.36 1.0</ambient><diffuse>0.28 0.32 0.36 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.8600 0.0300 0.0300</size></box></geometry></collision>
+      </link>
+    </model>
+    
+    <model name="pump_body">
+      <static>true</static>
+      <pose>-0.0500 0.0000 0.9800 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.0550</radius><length>0.1400</length></cylinder></geometry>
+          <material><ambient>0.15 0.16 0.18 1.0</ambient><diffuse>0.15 0.16 0.18 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision">
+          <geometry><cylinder><radius>0.0550</radius><length>0.1400</length></cylinder></geometry>
+        </collision>
+      </link>
+    </model>
+    
+    <model name="pump_lamp_off">
+      <static>false</static>
+      <pose>-0.0500 0.0000 1.0800 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0300</radius></sphere></geometry>
+          <material><ambient>0.25 0.25 0.25 1.0</ambient><diffuse>0.25 0.25 0.25 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="pump_lamp_on">
+      <static>false</static>
+      <pose>-0.0500 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0300</radius></sphere></geometry>
+          <material><ambient>0.95 0.55 0.05 1.0</ambient><diffuse>0.95 0.55 0.05 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="mode_stopped">
+      <static>false</static>
+      <pose>0.0000 -0.4200 0.8200 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0450</radius></sphere></geometry>
+          <material><ambient>0.45 0.45 0.45 1.0</ambient><diffuse>0.45 0.45 0.45 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+    <model name="mode_idle">
+      <static>false</static>
+      <pose>0.0000 -0.4200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0450</radius></sphere></geometry>
+          <material><ambient>0.15 0.65 0.25 1.0</ambient><diffuse>0.15 0.65 0.25 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+    <model name="mode_refilling">
+      <static>false</static>
+      <pose>0.0000 -0.4200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0450</radius></sphere></geometry>
+          <material><ambient>0.1 0.35 0.9 1.0</ambient><diffuse>0.1 0.35 0.9 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+    <model name="mode_manual">
+      <static>false</static>
+      <pose>0.0000 -0.4200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0450</radius></sphere></geometry>
+          <material><ambient>0.9 0.7 0.1 1.0</ambient><diffuse>0.9 0.7 0.1 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+    <model name="mode_fault">
+      <static>false</static>
+      <pose>0.0000 -0.4200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0450</radius></sphere></geometry>
+          <material><ambient>0.85 0.12 0.1 1.0</ambient><diffuse>0.85 0.12 0.1 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="supply_water_00">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_01">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_02">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_03">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_04">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_05">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_06">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_07">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_08">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_09">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_10">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_11">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_12">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_13">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_14">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="supply_water_15">
+      <static>false</static>
+      <pose>-0.7200 0.0000 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.2880 0.2880 0.0196</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+    
+    <model name="trough_water_00">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_01">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_02">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_03">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_04">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_05">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_06">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_07">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_08">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_09">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_10">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_11">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_12">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_13">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_14">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+
+    <model name="trough_water_15">
+      <static>false</static>
+      <pose>0.6200 0.0200 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><box><size>0.6336 0.3072 0.0092</size></box></geometry>
+          <material><ambient>0.12 0.45 0.82 0.95</ambient><diffuse>0.12 0.45 0.82 0.95</diffuse><specular>0.15 0.15 0.15 0.95</specular></material>
+        </visual>
+        
+      </link>
+    </model>
+    
+    <model name="supply_low_wet">
+      <static>false</static>
+      <pose>-0.7200 -0.1950 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0220</radius></sphere></geometry>
+          <material><ambient>0.1 0.35 0.85 1.0</ambient><diffuse>0.1 0.35 0.85 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="supply_low_dry">
+      <static>false</static>
+      <pose>-0.7200 -0.1950 0.9680 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0220</radius></sphere></geometry>
+          <material><ambient>0.75 0.75 0.72 1.0</ambient><diffuse>0.75 0.75 0.72 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="trough_low_wet">
+      <static>false</static>
+      <pose>0.4400 -0.1850 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0220</radius></sphere></geometry>
+          <material><ambient>0.1 0.35 0.85 1.0</ambient><diffuse>0.1 0.35 0.85 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="trough_low_dry">
+      <static>false</static>
+      <pose>0.4400 -0.1850 0.8880 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0220</radius></sphere></geometry>
+          <material><ambient>0.75 0.75 0.72 1.0</ambient><diffuse>0.75 0.75 0.72 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="trough_high_wet">
+      <static>false</static>
+      <pose>0.6700 -0.1850 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0220</radius></sphere></geometry>
+          <material><ambient>0.1 0.35 0.85 1.0</ambient><diffuse>0.1 0.35 0.85 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="trough_high_dry">
+      <static>false</static>
+      <pose>0.6700 -0.1850 0.9600 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0220</radius></sphere></geometry>
+          <material><ambient>0.75 0.75 0.72 1.0</ambient><diffuse>0.75 0.75 0.72 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="trough_cutoff_wet">
+      <static>false</static>
+      <pose>0.8400 -0.1850 -4.0000 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0260</radius></sphere></geometry>
+          <material><ambient>0.85 0.15 0.12 1.0</ambient><diffuse>0.85 0.15 0.12 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="trough_cutoff_dry">
+      <static>false</static>
+      <pose>0.8400 -0.1850 0.9872 0 0 0</pose>
+      <link name="link">
+        <kinematic>true</kinematic>
+        <gravity>false</gravity>
+        <inertial>
+          <mass>0.02</mass>
+          <inertia>
+            <ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz>
+            <iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry><sphere><radius>0.0260</radius></sphere></geometry>
+          <material><ambient>0.75 0.75 0.72 1.0</ambient><diffuse>0.75 0.75 0.72 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+      </link>
+    </model>
+    
+    <model name="animal_a_body">
+      <static>true</static>
+      <pose>0.3500 -0.4800 0.9300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.3400 0.1600 0.1600</size></box></geometry>
+          <material><ambient>0.42 0.28 0.16 1.0</ambient><diffuse>0.42 0.28 0.16 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.3400 0.1600 0.1600</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_a_head">
+      <static>true</static>
+      <pose>0.5500 -0.4800 0.9900 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.1200 0.1000 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.1200 0.1000 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_a_leg_0">
+      <static>true</static>
+      <pose>0.2500 -0.5300 0.8300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_a_leg_1">
+      <static>true</static>
+      <pose>0.2500 -0.4300 0.8300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_a_leg_2">
+      <static>true</static>
+      <pose>0.4500 -0.5300 0.8300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_a_leg_3">
+      <static>true</static>
+      <pose>0.4500 -0.4300 0.8300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+    
+    <model name="animal_b_body">
+      <static>true</static>
+      <pose>0.7800 -0.5000 0.9300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.3400 0.1600 0.1600</size></box></geometry>
+          <material><ambient>0.42 0.28 0.16 1.0</ambient><diffuse>0.42 0.28 0.16 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.3400 0.1600 0.1600</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_b_head">
+      <static>true</static>
+      <pose>0.9800 -0.5000 0.9900 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.1200 0.1000 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.1200 0.1000 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_b_leg_0">
+      <static>true</static>
+      <pose>0.6800 -0.5500 0.8300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_b_leg_1">
+      <static>true</static>
+      <pose>0.6800 -0.4500 0.8300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_b_leg_2">
+      <static>true</static>
+      <pose>0.8800 -0.5500 0.8300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="animal_b_leg_3">
+      <static>true</static>
+      <pose>0.8800 -0.4500 0.8300 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry>
+          <material><ambient>0.22 0.14 0.08 1.0</ambient><diffuse>0.22 0.14 0.08 1.0</diffuse><specular>0.15 0.15 0.15 1.0</specular></material>
+        </visual>
+        <collision name="collision"><geometry><box><size>0.0400 0.0400 0.1200</size></box></geometry></collision>
+      </link>
+    </model>
+
+    <model name="overview_camera">
+      <static>true</static>
+      <pose>1.60 -2.10 1.70 0 -0.28 2.22</pose>
+      <link name="link">
+        <sensor name="camera" type="camera">
+          <always_on>1</always_on>
+          <update_rate>4</update_rate>
+          <visualize>false</visualize>
+          <topic>overview</topic>
+          <camera>
+            <horizontal_fov>1.15</horizontal_fov>
+            <image>
+              <width>960</width>
+              <height>540</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>40</far>
+            </clip>
+          </camera>
+        </sensor>
+      </link>
+    </model>
+  </world>
+</sdf>
