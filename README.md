@@ -2,7 +2,7 @@
 
 Prototype for the NUST group project **DDROID Smart Livestock Watering and Monitoring System**.
 
-Author: n02528843x@students.nust.ac.zw
+Author: n02530153a@students.nust.ac.zw
 
 The machine is a stationary water-point controller. An ESP32-style state machine reads float switches, runs a low-voltage pump, and latches faults. Gazebo shows the bench. ROS 2 carries the same status and operator commands.
 
