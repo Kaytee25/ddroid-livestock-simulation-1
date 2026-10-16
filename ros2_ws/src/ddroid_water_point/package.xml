@@ -4,7 +4,7 @@
   <name>ddroid_water_point</name>
   <version>0.1.0</version>
   <description>ROS 2 node for the DDROID livestock water-point controller and Gazebo scene.</description>
-  <maintainer email="fabulousdallen87@gmail.com">fabilous Lashidi</maintainer>
+  <maintainer email="n02528843x@students.nust.ac.zw">fabilous Lashidi</maintainer>
   <license>MIT</license>
 
   <depend>rclpy</depend>

@@ -14,7 +14,7 @@ setup(
     install_requires=["setuptools"],
     zip_safe=True,
     maintainer="fabilous Lashidi",
-    maintainer_email="fabulousdallen87@gmail.com",
+    maintainer_email="n02528843x@students.nust.ac.zw",
     description="ROS 2 interface for the DDROID livestock water-point controller.",
     license="MIT",
     entry_points={
